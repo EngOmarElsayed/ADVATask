@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CellView: View {
-    @Binding var isFullScreen: Bool
-    @Binding var image: String
     
     let imageItem: ImageItem
     
@@ -30,12 +28,6 @@ struct CellView: View {
                 }
         }
         .padding()
-        .onTapGesture {
-            withAnimation {
-                image = imageItem.image
-                isFullScreen.toggle()
-            }
-        }
     }
 }
 

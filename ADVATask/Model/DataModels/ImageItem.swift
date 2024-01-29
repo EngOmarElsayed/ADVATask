@@ -8,13 +8,13 @@
 import Foundation
 
 
-struct ImageItem: Decodable {
+struct ImageItem: Codable {
     var id: Int
     var title: String
     var image: String
     
     enum CodingKeys: String, CodingKey {
-        case id, title
+        case title, id
         case image = "url"
     }
 }

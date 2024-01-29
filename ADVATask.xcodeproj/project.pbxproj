@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		261780652B6609FE0021D46E /* KingFisherImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261780642B6609FE0021D46E /* KingFisherImageView.swift */; };
 		261780672B668F4F0021D46E /* ImageItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261780662B668F4F0021D46E /* ImageItemsViewModel.swift */; };
-		2617806B2B6692750021D46E /* ImageItemsLoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617806A2B6692750021D46E /* ImageItemsLoderProtocol.swift */; };
-		2617806E2B6692E30021D46E /* ImageItemsRemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617806D2B6692E30021D46E /* ImageItemsRemoteLoader.swift */; };
+		2617806E2B6692E30021D46E /* RemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617806D2B6692E30021D46E /* RemoteLoader.swift */; };
+		26B66B652B67A94E0085A527 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66B642B67A94E0085A527 /* NetworkProtocol.swift */; };
+		26B66B672B67A9C10085A527 /* URLPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66B662B67A9C10085A527 /* URLPaths.swift */; };
+		26B66B692B67AA260085A527 /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66B682B67AA260085A527 /* UrlBuilder.swift */; };
+		26B66B6B2B67AA4F0085A527 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66B6A2B67AA4F0085A527 /* EndPoint.swift */; };
+		26B66B6D2B67AAE40085A527 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66B6C2B67AAE40085A527 /* Network.swift */; };
+		26B66B722B67C2340085A527 /* LoadingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66B712B67C2340085A527 /* LoadingModifier.swift */; };
 		26E000C32B657E0400099206 /* ADVATaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E000C22B657E0400099206 /* ADVATaskApp.swift */; };
 		26E000C52B657E0400099206 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E000C42B657E0400099206 /* ListView.swift */; };
 		26E000C72B657E0500099206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E000C62B657E0500099206 /* Assets.xcassets */; };
@@ -24,8 +29,13 @@
 /* Begin PBXFileReference section */
 		261780642B6609FE0021D46E /* KingFisherImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherImageView.swift; sourceTree = "<group>"; };
 		261780662B668F4F0021D46E /* ImageItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemsViewModel.swift; sourceTree = "<group>"; };
-		2617806A2B6692750021D46E /* ImageItemsLoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemsLoderProtocol.swift; sourceTree = "<group>"; };
-		2617806D2B6692E30021D46E /* ImageItemsRemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemsRemoteLoader.swift; sourceTree = "<group>"; };
+		2617806D2B6692E30021D46E /* RemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoader.swift; sourceTree = "<group>"; };
+		26B66B642B67A94E0085A527 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		26B66B662B67A9C10085A527 /* URLPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPaths.swift; sourceTree = "<group>"; };
+		26B66B682B67AA260085A527 /* UrlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
+		26B66B6A2B67AA4F0085A527 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		26B66B6C2B67AAE40085A527 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		26B66B712B67C2340085A527 /* LoadingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingModifier.swift; sourceTree = "<group>"; };
 		26E000BF2B657E0400099206 /* ADVATask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVATask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E000C22B657E0400099206 /* ADVATaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADVATaskApp.swift; sourceTree = "<group>"; };
 		26E000C42B657E0400099206 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -56,12 +66,24 @@
 			path = DataModels;
 			sourceTree = "<group>";
 		};
-		261780692B66925C0021D46E /* Protocols */ = {
+		26B66B632B67A9330085A527 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				2617806A2B6692750021D46E /* ImageItemsLoderProtocol.swift */,
+				26B66B642B67A94E0085A527 /* NetworkProtocol.swift */,
+				26B66B6C2B67AAE40085A527 /* Network.swift */,
+				26B66B662B67A9C10085A527 /* URLPaths.swift */,
+				26B66B682B67AA260085A527 /* UrlBuilder.swift */,
+				26B66B6A2B67AA4F0085A527 /* EndPoint.swift */,
 			);
-			path = Protocols;
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		26B66B6E2B67AD9C0085A527 /* RemotLoader */ = {
+			isa = PBXGroup;
+			children = (
+				2617806D2B6692E30021D46E /* RemoteLoader.swift */,
+			);
+			path = RemotLoader;
 			sourceTree = "<group>";
 		};
 		26E000B62B657E0400099206 = {
@@ -121,9 +143,9 @@
 		26E000D22B657E2000099206 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				261780692B66925C0021D46E /* Protocols */,
+				26B66B6E2B67AD9C0085A527 /* RemotLoader */,
+				26B66B632B67A9330085A527 /* NetworkLayer */,
 				261780682B6692500021D46E /* DataModels */,
-				2617806D2B6692E30021D46E /* ImageItemsRemoteLoader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				26E000D32B657E3A00099206 /* CellView.swift */,
+				26B66B712B67C2340085A527 /* LoadingModifier.swift */,
 				26E000D52B657E4700099206 /* ImageMagnificationView.swift */,
 				261780642B6609FE0021D46E /* KingFisherImageView.swift */,
 			);
@@ -214,12 +237,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B66B6D2B67AAE40085A527 /* Network.swift in Sources */,
+				26B66B722B67C2340085A527 /* LoadingModifier.swift in Sources */,
 				26E000D62B657E4700099206 /* ImageMagnificationView.swift in Sources */,
-				2617806E2B6692E30021D46E /* ImageItemsRemoteLoader.swift in Sources */,
+				2617806E2B6692E30021D46E /* RemoteLoader.swift in Sources */,
+				26B66B652B67A94E0085A527 /* NetworkProtocol.swift in Sources */,
 				26E000C52B657E0400099206 /* ListView.swift in Sources */,
 				261780652B6609FE0021D46E /* KingFisherImageView.swift in Sources */,
-				2617806B2B6692750021D46E /* ImageItemsLoderProtocol.swift in Sources */,
+				26B66B692B67AA260085A527 /* UrlBuilder.swift in Sources */,
+				26B66B6B2B67AA4F0085A527 /* EndPoint.swift in Sources */,
 				26E000C32B657E0400099206 /* ADVATaskApp.swift in Sources */,
+				26B66B672B67A9C10085A527 /* URLPaths.swift in Sources */,
 				26E000D42B657E3A00099206 /* CellView.swift in Sources */,
 				261780672B668F4F0021D46E /* ImageItemsViewModel.swift in Sources */,
 				26E000D82B65807200099206 /* ImageItem.swift in Sources */,

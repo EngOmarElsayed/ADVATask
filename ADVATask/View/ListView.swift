@@ -8,37 +8,36 @@
 import SwiftUI
 
 struct ListView: View {
-    @EnvironmentObject var vm: ImageItemsViewModel
+    @ObservedObject var vm: ImageItemsViewModel
+    @State private var image: String = "https://via.placeholder.com/600/92c952"
+    
+    @State private var isFullScreen = false
     let colums = [GridItem(.flexible())]
     
     var body: some View {
         ScrollView {
-            if vm.isLoading {
-                ProgressView()
-                    .progressViewStyle(.circular)
-            } else {
                 LazyVGrid(columns: colums) {
                     ForEach(vm.imagesDisplayed, id: \.id) { item in
-                        CellView(isFullScreen: $vm.isFullScreen, image: $vm.image ,imageItem: item)
+                        CellView(imageItem: item)
+                            .onTapGesture {
+                                image = item.image
+                                isFullScreen.toggle()
+                            }
                             .onAppear(perform: {
-                                if vm.isItemLastInArray(item) {
-                                    vm.updateArray()
-                                }
+                                vm.checkForPagination(item)
                             })
                     }
                 }.padding(.vertical)
-            }
         }
         .navigationTitle("Images")
-        .fullScreenCover(isPresented: $vm.isFullScreen, content: {
-            ImageMagnificationView(isFullScreen: $vm.isFullScreen, image: vm.image)
+        .loadingModifier(isLoading: $vm.isLoading)
+        .fullScreenCover(isPresented: $isFullScreen, content: {
+            ImageMagnificationView(isFullScreen: $isFullScreen, image: image)
         })
+        .task {
+            await vm.loadImageItems()
+        }
     }
     
 }
 
-#Preview {
-    NavigationStack {
-        ListView()
-    }
-}

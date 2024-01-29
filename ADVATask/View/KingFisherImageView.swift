@@ -14,6 +14,7 @@ struct KingFisherImageView: View {
         if let url = URL(string: imageUrl) {
             KFImage(url)
                 .resizable()
+                .cacheMemoryOnly()
                 .cancelOnDisappear(true)
         }
     }
