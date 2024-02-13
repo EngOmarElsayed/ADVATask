@@ -8,5 +8,12 @@
 import Foundation
 
 protocol NetworkProtocol {
-    func loadFrom<T: Codable>(path: UrlBuilder) async throws -> T
+    var urlSession: URLSession { get }
+    func loadFor<T: Codable>(path: UrlBuilder) async throws -> T
+}
+
+extension NetworkProtocol {
+    var urlSession: URLSession {
+        URLSession.shared
+    }
 }

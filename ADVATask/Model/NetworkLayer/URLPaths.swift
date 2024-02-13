@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum urlPath: String {
+enum urlPath {
     case photos
+    case specificPhotos(imageId: Int)
 }
